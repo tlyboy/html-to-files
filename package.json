@@ -1,0 +1,11 @@
+{
+  "name": "html-to-files",
+  "version": "1.0.0",
+  "description": "html-to-files",
+  "main": "index.js",
+  "author": "Guany",
+  "license": "MIT",
+  "scripts": {
+    "build": "node index.js"
+  }
+}
