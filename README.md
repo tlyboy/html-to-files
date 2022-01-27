@@ -27,7 +27,7 @@ $ node index.js
 #### 2. 使用 npm 或 yarn 构建
 
 ```bash
-$ npm run dist # yarn run dist
+$ npm run build # yarn run build
 ```
 
 ## 三、使用
