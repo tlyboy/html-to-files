@@ -15,15 +15,19 @@ fs.mkdir(path.join(__dirname, './dist'), err => {
 })
 
 // 2.1 读取需要被处理的 HTML 文件
-fs.readFile(path.join(__dirname, './src/index.html'), 'utf8', (err, dataStr) => {
-  // 2.2 读取 HTML 文件失败
-  if (err) return console.log('读取 HTML 文件失败！' + err.message)
+fs.readFile(
+  path.join(__dirname, './src/index.html'),
+  'utf8',
+  (err, dataStr) => {
+    // 2.2 读取 HTML 文件失败
+    if (err) return console.log('读取 HTML 文件失败！' + err.message)
 
-  //2.4 读取 HTML 文件成功后，调用对应的方法，拆解出 css、js 和 html 文件
-  resolveCSS(dataStr)
-  resolveJS(dataStr)
-  resolveHTML(dataStr)
-})
+    //2.4 读取 HTML 文件成功后，调用对应的方法，拆解出 css、js 和 html 文件
+    resolveCSS(dataStr)
+    resolveJS(dataStr)
+    resolveHTML(dataStr)
+  }
+)
 
 // 3.1 处理 css 样式
 function resolveCSS(htmlStr) {
@@ -54,7 +58,9 @@ function resolveJS(htmlStr) {
 // 5.1 处理 html 文件
 function resolveHTML(htmlStr) {
   // 5.2 使用字符串的 replace 方法，把内嵌的 <script> 和 </script> 标签，替换为外联的 <link> 和 <script> 标签
-  const newHTML = htmlStr.replace(regStyle, '<link rel="stylesheet" href="./index.css">').replace(regScript, '<script src="./index.js"></script>')
+  const newHTML = htmlStr
+    .replace(regStyle, '<link rel="stylesheet" href="./index.css">')
+    .replace(regScript, '<script src="./index.js"></script>')
   // 5.3 将替换完之后的 html 代码，写入到 index.html 文件中
   fs.writeFile(path.join(__dirname, './dist/index.html'), newHTML, err => {
     if (err) return console.log('写入 HTML 页面文件失败！' + err.message)
