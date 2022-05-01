@@ -1,7 +1,7 @@
 {
   "name": "html-to-files",
   "version": "1.0.0",
-  "description": "html-to-files",
+  "description": "能够将一个 HTML 文件拆分成 HTML、CSS 和 JavaScript 文件的 NodeJS 小工具",
   "main": "index.js",
   "author": "Guany",
   "license": "MIT",
