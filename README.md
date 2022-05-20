@@ -1,6 +1,6 @@
 # html-to-files
 
-能够将一个 HTML 文件拆分成 HTML、CSS 和 JavaScript 文件的 NodeJS 小工具
+能够将一个 HTML 文件拆分成 HTML、CSS 和 JavaScript 文件的 NodeJS 小工具。
 
 ## 使用说明
 
