@@ -5,6 +5,7 @@
   "description": "📦 HTML 拆分工具",
   "license": "MIT",
   "author": "Guany",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "build": "node index.js"

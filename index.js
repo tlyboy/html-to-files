@@ -1,7 +1,5 @@
 // 1.1 导入 fs 文件系统模块
-const fs = require('fs')
-// 1.2 导入 path 文件系统模块
-const path = require('path')
+import fs from 'fs'
 
 // 1.3 匹配 <style></style> 标签的正则
 // 其中 \s 表示空白字符； \S 表示非空白字符； * 表示匹配任意次
@@ -10,13 +8,13 @@ const regStyle = /<style>[\s\S]*<\/style>/
 const regScript = /<script>[\s\S]*<\/script>/
 
 // 判断 dist 目录是否存在，若不存在则自动创建
-fs.mkdir(path.join(__dirname, './dist'), err => {
+fs.mkdir(new URL('./dist', import.meta.url), err => {
   if (err) return
 })
 
 // 2.1 读取需要被处理的 HTML 文件
 fs.readFile(
-  path.join(__dirname, './src/index.html'),
+  new URL('./src/index.html', import.meta.url),
   'utf8',
   (err, dataStr) => {
     // 2.2 读取 HTML 文件失败
@@ -36,7 +34,7 @@ function resolveCSS(htmlStr) {
   // 3.3 将提取出来的样式字符串，做进一步的处理
   const newCSS = r1[0].replace('<style>', '').replace('</style>', '')
   // 3.4 将提取出来的 css 样式，写入到 index.css 文件中
-  fs.writeFile(path.join(__dirname, './dist/index.css'), newCSS, err => {
+  fs.writeFile(new URL('./dist/index.css', import.meta.url), newCSS, err => {
     if (err) return console.log('写入 CSS 样式文件失败！' + err.message)
     console.log('写入 CSS 样式文件成功！')
   })
@@ -49,7 +47,7 @@ function resolveJS(htmlStr) {
   // 4.3 将提取出来的脚本字符串，做进一步的处理
   const newJS = r2[0].replace('<script>', '').replace('</script>', '')
   // 4.4 将提取出来的 js 脚本，写入到 index.js 文件中
-  fs.writeFile(path.join(__dirname, './dist/index.js'), newJS, err => {
+  fs.writeFile(new URL('./dist/index.js', import.meta.url), newJS, err => {
     if (err) return console.log('写入 JS 脚本文件失败！' + err.message)
     console.log('写入 JS 脚本文件成功！')
   })
@@ -62,7 +60,7 @@ function resolveHTML(htmlStr) {
     .replace(regStyle, '<link rel="stylesheet" href="./index.css">')
     .replace(regScript, '<script src="./index.js"></script>')
   // 5.3 将替换完之后的 html 代码，写入到 index.html 文件中
-  fs.writeFile(path.join(__dirname, './dist/index.html'), newHTML, err => {
+  fs.writeFile(new URL('./dist/index.html', import.meta.url), newHTML, err => {
     if (err) return console.log('写入 HTML 页面文件失败！' + err.message)
     console.log('写入 HTML 页面文件成功！')
   })
