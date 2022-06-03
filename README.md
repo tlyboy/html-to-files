@@ -18,4 +18,4 @@ npm run build
 
 ## 使用许可
 
-[MIT](https://github.com/tlyboy/html-to-files/blob/main/LICENSE) © Guany
+[MIT](https://opensource.org/licenses/MIT) © Guany
