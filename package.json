@@ -6,7 +6,6 @@
   "license": "MIT",
   "author": "Guany",
   "type": "module",
-  "main": "main.js",
   "scripts": {
     "build": "node index.js",
     "format": "prettier --write ."
