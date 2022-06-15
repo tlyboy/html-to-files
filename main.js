@@ -65,3 +65,9 @@ function resolveHTML(htmlStr) {
     console.log('写入 HTML 页面文件成功！')
   })
 }
+
+export default {
+  resolveCSS,
+  resolveJS,
+  resolveHTML
+}
