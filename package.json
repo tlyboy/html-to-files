@@ -2,7 +2,7 @@
   "name": "html-to-files",
   "version": "1.0.0",
   "private": true,
-  "description": "📦 HTML 拆分工具",
+  "description": "HTML 拆分工具",
   "license": "MIT",
   "author": "Guany",
   "type": "module",
