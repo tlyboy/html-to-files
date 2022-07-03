@@ -13,19 +13,15 @@ fs.mkdir(new URL('./dist', import.meta.url), err => {
 })
 
 // 2.1 读取需要被处理的 HTML 文件
-fs.readFile(
-  new URL('./src/index.html', import.meta.url),
-  'utf8',
-  (err, dataStr) => {
-    // 2.2 读取 HTML 文件失败
-    if (err) return console.log('读取 HTML 文件失败！' + err.message)
+fs.readFile(new URL('./src/index.html', import.meta.url), 'utf8', (err, dataStr) => {
+  // 2.2 读取 HTML 文件失败
+  if (err) return console.log('读取 HTML 文件失败！' + err.message)
 
-    //2.4 读取 HTML 文件成功后，调用对应的方法，拆解出 css、js 和 html 文件
-    resolveCSS(dataStr)
-    resolveJS(dataStr)
-    resolveHTML(dataStr)
-  }
-)
+  //2.4 读取 HTML 文件成功后，调用对应的方法，拆解出 css、js 和 html 文件
+  resolveCSS(dataStr)
+  resolveJS(dataStr)
+  resolveHTML(dataStr)
+})
 
 // 3.1 处理 css 样式
 function resolveCSS(htmlStr) {
