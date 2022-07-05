@@ -7,7 +7,7 @@
   "author": "Guany",
   "type": "module",
   "scripts": {
-    "build": "node index.js",
+    "build": "node main.js",
     "format": "prettier --write ."
   },
   "devDependencies": {
