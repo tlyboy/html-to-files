@@ -24,7 +24,7 @@ fs.readFile(new URL('./src/index.html', import.meta.url), 'utf8', (err, dataStr)
 })
 
 // 3.1 处理 css 样式
-const resolveCSS = htmlStr => {
+function resolveCSS(htmlStr) {
   // 3.2 使用正则提取页面中的 <style></style> 标签
   const r1 = regStyle.exec(htmlStr)
   // 3.3 将提取出来的样式字符串，做进一步的处理
@@ -37,7 +37,7 @@ const resolveCSS = htmlStr => {
 }
 
 // 4.1 处理 js 脚本
-const resolveJS = htmlStr => {
+function resolveJS(htmlStr) {
   // 4.2 使用正则提取页面中的 <script></script> 标签
   const r2 = regScript.exec(htmlStr)
   // 4.3 将提取出来的脚本字符串，做进一步的处理
@@ -50,7 +50,7 @@ const resolveJS = htmlStr => {
 }
 
 // 5.1 处理 html 文件
-const resolveHTML = htmlStr => {
+function resolveHTML(htmlStr) {
   // 5.2 使用字符串的 replace 方法，把内嵌的 <script> 和 </script> 标签，替换为外联的 <link> 和 <script> 标签
   const newHTML = htmlStr
     .replace(regStyle, '<link rel="stylesheet" href="./style.css">')
